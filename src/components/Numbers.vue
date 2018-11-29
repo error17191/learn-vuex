@@ -3,12 +3,16 @@
         <ul v-if="numbers.length">
             <li v-for="number in numbers">{{ number }}</li>
         </ul>
+        <div v-else>Start adding numbers</div>
+        <add-number></add-number>
     </div>
 </template>
 
 <script>
+    import AddNumber from "./AddNumber";
     export default {
         name: 'numbers',
+        components: {AddNumber},
         computed: {
             numbers() {
                 return this.$store.getters.numbers

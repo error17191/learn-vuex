@@ -1,18 +1,19 @@
 <template>
-  <div>
-    <a href="#" @click.prevent="fetchNumber">Add random number</a>
-  </div>
+    <div>
+        <a href="#" @click.prevent="add">Add random number</a>
+    </div>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
 
-  export default {
-    name: 'add-number',
-    methods: {
-      ...mapActions({
-        fetchNumber: 'fetchNumber'
-      })
+    export default {
+        name: 'add-number',
+        methods: {
+            add() {
+                this.$store.commit('addRandomNumber',
+                    Math.floor(Math.random() * 100  + 1)
+                )
+            }
+        }
     }
-  }
 </script>

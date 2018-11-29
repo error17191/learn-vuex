@@ -13908,6 +13908,10 @@ exports.push([module.i, "\nh1[data-v-7a38e96c], h2[data-v-7a38e96c] {\n    font-
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddNumber__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AddNumber___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__AddNumber__);
+//
+//
 //
 //
 //
@@ -13917,8 +13921,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'numbers',
+    components: { AddNumber: __WEBPACK_IMPORTED_MODULE_0__AddNumber___default.a },
     computed: {
         numbers: function numbers() {
             return this.$store.getters.numbers;
@@ -13927,10 +13933,77 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(30)
+/* template */
+var __vue_template__ = __webpack_require__(31)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/components/AddNumber.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-83e6736c", Component.options)
+  } else {
+    hotAPI.reload("data-v-83e6736c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'add-number',
+    methods: {
+        add: function add() {
+            this.$store.commit('addRandomNumber', Math.floor(Math.random() * 100 + 1));
+        }
+    }
+});
+
+/***/ }),
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -13938,15 +14011,55 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.numbers.length
-      ? _c(
-          "ul",
-          _vm._l(_vm.numbers, function(number) {
-            return _c("li", [_vm._v(_vm._s(number))])
-          })
-        )
-      : _vm._e()
+    _c(
+      "a",
+      {
+        attrs: { href: "#" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.add($event)
+          }
+        }
+      },
+      [_vm._v("Add random number")]
+    )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-83e6736c", module.exports)
+  }
+}
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm.numbers.length
+        ? _c(
+            "ul",
+            _vm._l(_vm.numbers, function(number) {
+              return _c("li", [_vm._v(_vm._s(number))])
+            })
+          )
+        : _c("div", [_vm._v("Start adding numbers")]),
+      _vm._v(" "),
+      _c("add-number")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -14038,7 +14151,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-    numbers: [10, 54, 33]
+    numbers: []
 });
 
 /***/ }),
